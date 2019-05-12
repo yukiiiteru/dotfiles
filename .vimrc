@@ -1,6 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
+"	@change: 20190508
 " --------------------------------
 " Vundle.vim config
 set nocompatible
@@ -18,6 +19,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'myusuf3/numbers.vim'
+Plugin 't9md/vim-choosewin'
 " Plugin 'davidhalter/jedi-vim'		" I want to try YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
@@ -44,7 +46,8 @@ nnoremap <F4> :NumbersToggle<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <Space>f <Plug>(easymotion-overwin-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+nmap  <Space>  <Plug>(choosewin)
 " nmap <Space> <Plug>(easymotion-prefix)
 " --------------------------------
 " My config
