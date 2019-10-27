@@ -18,10 +18,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
-Plugin 'myusuf3/numbers.vim'
+" Plugin 'myusuf3/numbers.vim'
 Plugin 't9md/vim-choosewin'
+Plugin 'JuliaEditorSupport/julia-vim'
 " Plugin 'davidhalter/jedi-vim'		" I want to try YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 " --------------------------------
@@ -41,7 +42,7 @@ let g:tagbar_autofocus = 1
 " map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
-nnoremap <F4> :NumbersToggle<CR>
+" nnoremap <F4> :NumbersToggle<CR>
 " autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py call tagbar#autoopen()
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
@@ -116,5 +117,4 @@ func RunCode()
 endfunc
 
 " --------------------------------
-
 
