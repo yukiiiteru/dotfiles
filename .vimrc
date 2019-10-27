@@ -20,7 +20,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 " Plugin 'myusuf3/numbers.vim'
 Plugin 't9md/vim-choosewin'
-Plugin 'JuliaEditorSupport/julia-vim'
+" Plugin 'JuliaEditorSupport/julia-vim'	" I dont use julia any more
 " Plugin 'davidhalter/jedi-vim'		" I want to try YouCompleteMe
 Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
