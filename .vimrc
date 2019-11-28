@@ -56,14 +56,6 @@ autocmd FileType c,cpp inoremap {<CR> {<CR>}<Esc>O
 nmap <C-c> "+
 vmap <C-c> "+y
 map <C-n>h :nohl<CR>
-map <C-l> :set scrollbind<CR>
-map <C-n>l :set noscrollbind<CR>
-nmap <leader>h :set scrollbind<CR>
-nmap <leader>n :set noscrollbind<CR>
-map <C-t>h <Esc>:vsp<CR>:ter ++curwin<CR><C-w>N:set nu!<CR>i
-map <C-t>j <Esc>:sp<CR><C-w>j:ter ++curwin<CR><C-w>N:set nu!<CR>i
-map <C-t>k <Esc>:sp<CR>:ter ++curwin<CR><C-w>N:set nu!<CR>i
-map <C-t>l <Esc>:vsp<CR><C-w>l:ter ++curwin<CR><C-w>N:set nu!<CR>i
 nmap <Space>t :tabnew<CR>
 nmap <Space>h :tabp<CR>
 nmap <Space>l :tabn<CR>
