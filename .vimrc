@@ -1,7 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20190508
+"	@change: 20191128
 " --------------------------------
 " Vundle.vim config
 set nocompatible
@@ -9,20 +9,15 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'sensible.vim'
-" Plugin 'winmanager'
-" Plugin 'taglist-plus'				" I use tagbar
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
-" Plugin 'myusuf3/numbers.vim'
 Plugin 't9md/vim-choosewin'
-" Plugin 'JuliaEditorSupport/julia-vim'	" I dont use julia any more
-" Plugin 'davidhalter/jedi-vim'		" I want to try YouCompleteMe
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'jceb/vim-orgmode'
 call vundle#end()
 filetype plugin indent on
 " --------------------------------
@@ -37,19 +32,13 @@ let g:airline#extensions#tabline#buffer_nr_show=1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:tagbar_width = 30
 let g:tagbar_autofocus = 1
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
-" nnoremap <F4> :NumbersToggle<CR>
-" autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py call tagbar#autoopen()
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <leader>f <Plug>(easymotion-overwin-f)
-nmap  <Space>  <Plug>(choosewin)
-" nmap <Space> <Plug>(easymotion-prefix)
+nmap  <Space>f  <Plug>(choosewin)
 " --------------------------------
 " My config
 set number
@@ -60,22 +49,20 @@ set hlsearch
 set autoread
 set nowrap
 " sensible.vim is very good!
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936	" set encoding
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 autocmd FileType python map <F6> <Esc>:w!<CR>:!python % 
 autocmd FileType c,cpp inoremap {<CR> {<CR>}<Esc>O
-map <C-c> :call CodeMode()<CR>
+nmap <C-c> "+
+vmap <C-c> "+y
 map <C-n>h :nohl<CR>
-" map <C-l> :set scrollbind<CR>
-" map <C-n>l :set noscrollbind<CR>
+map <C-l> :set scrollbind<CR>
+map <C-n>l :set noscrollbind<CR>
 nmap <leader>h :set scrollbind<CR>
 nmap <leader>n :set noscrollbind<CR>
-" map <C-t>h <Esc>:vsplit<CR>:term<CR><C-w>j<C-w>q<C-w>N:set nu!<CR>i
 map <C-t>h <Esc>:vsp<CR>:ter ++curwin<CR><C-w>N:set nu!<CR>i
-" map <C-t>j :terminal<CR><C-w>N<C-w>r:set nu!<CR>i
 map <C-t>j <Esc>:sp<CR><C-w>j:ter ++curwin<CR><C-w>N:set nu!<CR>i
-" map <C-t>k :terminal<CR><C-w>N:set nu!<CR>i
 map <C-t>k <Esc>:sp<CR>:ter ++curwin<CR><C-w>N:set nu!<CR>i
-" map <C-t>l <Esc>:vsplit<CR>:term<CR><C-w>j<C-w>q<C-w>N:set nu!<CR><C-w>ri
 map <C-t>l <Esc>:vsp<CR><C-w>l:ter ++curwin<CR><C-w>N:set nu!<CR>i
 nmap <Space>t :tabnew<CR>
 nmap <Space>h :tabp<CR>
@@ -89,20 +76,7 @@ nmap <Space>n <C-w><C-w>
 nmap <Space>x <C-w><C-x>
 nmap <Space>s :sp<CR>
 nmap <Space>v :vsp<CR>
-" nmap <Space>z :bp|bd#<CR>
 tnoremap <C-e> <C-w>N
-
-
-func CodeMode()
-	" Enable colorscheme and autosave status
-	" Just need quit with :qall
-	" I added an alias in .zshrc to start with Session
-	" as this: alias vimS="vim -S ~/.vim/session/Session.vim"
-	" Type vimS to recover last status
-	set sessionoptions=buffers,curdir,resize,folds,tabpages
-	exec 'colorscheme darkblue'
-	exec "autocmd VimLeave * mksession! $HOME/.vim/session/Session.vim"
-endfunc
 
 func RunCode()
 	if &filetype == 'c'
