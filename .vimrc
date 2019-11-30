@@ -1,25 +1,19 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20191128
+"	@change: 20191130
 " --------------------------------
-" Vundle.vim config
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'sensible.vim'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 't9md/vim-choosewin'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'jceb/vim-orgmode'
-call vundle#end()
-filetype plugin indent on
+"  vim-plug config
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 't9md/vim-choosewin'
+Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clang-completer'}
+call plug#end()
 " --------------------------------
 " Plugin settings
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
@@ -53,7 +47,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936	" set encoding
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 autocmd FileType python map <F6> <Esc>:w!<CR>:!python % 
 autocmd FileType c,cpp inoremap {<CR> {<CR>}<Esc>O
-nmap <C-c> "+
+autocmd BufNewFile,BufRead *.vh setfiletype verilog
 vmap <C-c> "+y
 map <C-n>h :nohl<CR>
 nmap <Space>t :tabnew<CR>
