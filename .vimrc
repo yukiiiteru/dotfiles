@@ -1,7 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20191130
+"	@change: 20200131
 " --------------------------------
 "  vim-plug config
 call plug#begin('~/.vim/plugged')
