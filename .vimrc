@@ -1,7 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20200131
+"	@change: 20200206
 " --------------------------------
 "  vim-plug config
 call plug#begin('~/.vim/plugged')
@@ -12,11 +12,15 @@ Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 't9md/vim-choosewin'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clang-completer'}
+" Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clang-completer'}
+" It's too slow to using vim-plug,
+" I install it by pacman:
+" `sudo pacman -S vim-youcompleteme-git`
 call plug#end()
 " --------------------------------
 " Plugin settings
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'vertical-split'
@@ -64,16 +68,27 @@ nmap <Space>v :vsp<CR>
 tnoremap <C-e> <C-w>N
 
 func RunCode()
-	if &filetype == 'c'
-		exec "'vsplit term://bash -c 'gcc  % && ./a.out'"
-	elseif &filetype == 'cpp'
-		exec "vsplit term://bash -c 'g++ % && ./a.out'"
-	elseif &filetype == 'python'
-		exec "vsplit term://python %"
-	elseif &filetype == 'tex'
-		exec "vsplit term://xelatex %"
+	if has("nvim")
+		if &filetype == 'c'
+			exec "'vsplit term://bash -c 'gcc % && ./a.out'"
+		elseif &filetype == 'cpp'
+			exec "vsplit term://bash -c 'g++ % && ./a.out'"
+		elseif &filetype == 'python'
+			exec "vsplit term://python %"
+		elseif &filetype == 'tex'
+			exec "vsplit term://xelatex %"
+		endif
+	else
+		if &filetype == 'c'
+			exec 'terminal bash -c "gcc % && ./a.out"'
+		elseif &filetype == 'cpp'
+			exec 'terminal bash -c "g++ % && ./a.out"'
+		elseif &filetype == 'python'
+			exec 'terminal python %'
+		elseif &filetype == 'tex'
+			exec 'terminal xelatex %'
+		endif
 	endif
 endfunc
 
 " --------------------------------
-
