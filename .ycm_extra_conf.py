@@ -62,7 +62,11 @@ flags = [
 '-isystem',
 '/usr/include/c++/9.2.0',
 '-isystem',
+'/usr/include/c++/9.2.0/x86_64-pc-linux-gnu'
+'-isystem',
 '/usr/include',
+'-isystem',
+'/usr/local/include',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
