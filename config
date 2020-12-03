@@ -8,8 +8,8 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
-default_floating_border normal
+new_window pixel 1
+new_float normal
 
 # Hide borders
 hide_edge_borders none
@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec rofi -show run
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -52,15 +52,16 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+# bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
+bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -192,7 +193,6 @@ for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
@@ -270,12 +270,11 @@ mode "resize" {
 }
 
 # Lock screen
-# bindsym $mod+9 exec --no-startup-id blurlock
-bindsym $mod+9 exec --no-startup-id "blurlock; xset s activate"
+bindsym $mod+9 exec --no-startup-id "sleep 1; blurlock; xset s activate"
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -325,11 +324,12 @@ bar {
 	mode hide
 	i3bar_command i3bar
 	status_command i3status
+	# status_command ~/.i3/jconky
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
+	tray_output primary
+	tray_output eDP1
 
 	bindsym button4 nop
 	bindsym button5 nop
@@ -420,7 +420,27 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# My config
-exec_always --no-startup-id xset dpms 300
+# My condig
 exec --no-startup-id fcitx
+exec --no-startup-id compton -b
+exec --no-startup-id xset dpms 300
+exec_always --no-startup-id xset dpms 300
+# bindsym $mod+p exec shutter -f -e -o ~/Pictures/shot/%Y-%m-%d-%T.png
+bindsym $mod+p exec --no-startup-id scrot ~/Pictures/shot/%Y-%m-%d-%T.png
+exec --no-startup-id amixer set Master 0
+bindsym $mod+x exec rofi -show drun
+# exec --no-startup-id sh ~/.screenlayout/default.sh
+exec --no-startup-id feh --bg-scale ~/Pictures/Violet.jpg
+exec --no-startup-id conky -c ~/.config/conky/target.conkyrc
+# exec --no-startup-id conky -c ~/.config/conky/status.conkyrc
+# exec --no-startup-id dunst
+bindsym Mod1+h exec xdotool mousemove_relative -- -50 0
+bindsym Mod1+j exec xdotool mousemove_relative 0 50
+bindsym Mod1+k exec xdotool mousemove_relative -- 0 -50
+bindsym Mod1+l exec xdotool mousemove_relative 50 0
+bindsym Mod1+Shift+h exec xdotool mousemove_relative -- -10 0
+bindsym Mod1+Shift+j exec xdotool mousemove_relative 0 10
+bindsym Mod1+Shift+k exec xdotool mousemove_relative -- 0 -10
+bindsym Mod1+Shift+l exec xdotool mousemove_relative 10 0
+bindsym Mod1+space exec xdotool click 1
 
