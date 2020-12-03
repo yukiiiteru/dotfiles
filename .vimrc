@@ -1,7 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20200206
+"	@change: 20200704
 " --------------------------------
 "  vim-plug config
 call plug#begin('~/.vim/plugged')
@@ -12,10 +12,8 @@ Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 't9md/vim-choosewin'
-" Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clang-completer'}
-" It's too slow to using vim-plug,
-" I install it by pacman:
-" `sudo pacman -S vim-youcompleteme-git`
+Plug 'rust-lang/rust.vim'
+Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clangd-completer'}
 call plug#end()
 " --------------------------------
 " Plugin settings
@@ -25,6 +23,13 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'vertical-split'
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_language_server = [
+  \   { 'name': 'rust',
+  \     'filetypes': [ 'rust' ],
+  \		'cmdline': [ 'rust-analyzer' ],
+  \     'project_root_files': [ 'Cargo.toml' ],
+  \   },
+  \ ]
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show=1
@@ -49,7 +54,7 @@ set nowrap
 " sensible.vim is very good!
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
-autocmd FileType c,cpp inoremap {<CR> {<CR>}<Esc>O
+autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.vh setfiletype verilog
 vmap <C-c> "+y
 map <C-n>h :nohl<CR>
