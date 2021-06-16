@@ -1,7 +1,16 @@
-# wfly1998's config
+# Yukiteru's config
 
-大概今年开始吧，突然喜欢上玩一些上手比较难，比较依赖配置文件的程序或者桌面环境，比如vim，比如i3。
+## Configs
 
-打算在这里建一个repo把我的配置文件存起来，然后把仓库公开，一方面给自己备份，另一方面也可以拿来分享交流。
+* [config (i3wm)](configs/config_i3)
+* [i3status.conf](configs/i3status.conf)
+* [.profile](configs/profile)
+* [.xprofile](configs/xprofile)
+* [.Xresources](configs/Xresources)
+* [mimeapps.list](mimeapps.list)
+* [.vimrc / init.vim](init.vim)
 
-有时间放几张截图，现在还是自取吧～
+## Wallpapers
+
+* [Wallpapers](wallpapers)
+
