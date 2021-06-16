@@ -1,47 +1,28 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20200704
+"	@change: 20210616
 " --------------------------------
 "  vim-plug config
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
-Plug 't9md/vim-choosewin'
-Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clangd-completer'}
 call plug#end()
 " --------------------------------
 " Plugin settings
-" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'vertical-split'
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_language_server = [
-  \   { 'name': 'rust',
-  \     'filetypes': [ 'rust' ],
-  \		'cmdline': [ 'rust-analyzer' ],
-  \     'project_root_files': [ 'Cargo.toml' ],
-  \   },
-  \ ]
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show=1
-let g:tagbar_width = 30
-let g:tagbar_autofocus = 1
-map <F3> :NERDTreeToggle<CR>
-map <F8> :TagbarToggle<CR>
+let g:vim_markdown_folding_disabled = 1
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <leader>f <Plug>(choosewin)
-nmap <Space>f <Plug>(easymotion-overwin-f)
 " --------------------------------
 " My config
 set number
@@ -51,9 +32,9 @@ set shiftwidth=4
 set hlsearch
 set autoread
 set nowrap
-" sensible.vim is very good!
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
+map <F8> :TagbarToggle<CR>
 autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.vh setfiletype verilog
 vmap <C-c> "+y

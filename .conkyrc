@@ -1,4 +1,0 @@
-use_xft yes
-xftfont WenQuanYi Zen Hei:size=8
-override_utf8_locale yes
-text_buffer_size 2048
