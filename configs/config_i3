@@ -419,7 +419,7 @@ mode "$mode_gaps_outer" {
 }
 
 # My config
-exec --no-startup-id setxkbmap -option "caps:swapescape"
+# exec --no-startup-id setxkbmap -option "caps:swapescape"
 exec --no-startup-id fcitx
 exec --no-startup-id xset dpms 300
 exec_always --no-startup-id xset dpms 300
