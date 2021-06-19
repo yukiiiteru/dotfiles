@@ -1,0 +1,12 @@
+[Unit]
+Description=Set my own key maps
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xkeysnail /etc/xkeysnail/config.py
+Restart=always
+RestartSec=2
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
