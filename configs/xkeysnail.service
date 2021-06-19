@@ -3,9 +3,7 @@ Description=Set my own key maps
 
 [Service]
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/xkeysnail /etc/xkeysnail/config.py
-Restart=always
-RestartSec=2
+ExecStart=/usr/bin/xkeysnail -q /etc/xkeysnail/config.py
 Type=simple
 
 [Install]
