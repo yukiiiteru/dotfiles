@@ -1,9 +1,9 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20210616
+"	@change: 20210622
 " --------------------------------
-"  vim-plug config
+" vim-plug config
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'majutsushi/tagbar'
@@ -13,7 +13,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clangd-completer'}
 call plug#end()
 " --------------------------------
-" Plugin settings
+" Plugin setting
 let g:airline_powerline_fonts = 1
 let g:vim_markdown_folding_disabled = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
@@ -24,6 +24,7 @@ let g:ycm_min_num_of_chars_for_completion = 1
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" --------------------------------
 " My config
 set number
 set smartindent
@@ -34,26 +35,16 @@ set autoread
 set nowrap
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 colorscheme gruvbox
+" Key map
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 map <F8> :TagbarToggle<CR>
-autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
-autocmd BufNewFile,BufRead *.vh setfiletype verilog
 vmap <C-c> "+y
 map <C-n>h :nohl<CR>
-nmap <Space>t :tabnew<CR>
-nmap <Space>h :tabp<CR>
-nmap <Space>l :tabn<CR>
-nmap <Space>j :bp<CR>
-nmap <Space>k :bn<CR>
-nmap <Space>c :tabclose<CR>
 nmap <Space>q :q<CR>
 nmap <Space>w :w<CR>
-nmap <Space>n <C-w><C-w>
-nmap <Space>x <C-w><C-x>
-nmap <Space>s :sp<CR>
-nmap <Space>v :vsp<CR>
 tnoremap <C-e> <C-w>N
-
+autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
+" Function
 func RunCode()
 	if has("nvim")
 		if &filetype == 'c'
@@ -77,5 +68,4 @@ func RunCode()
 		endif
 	endif
 endfunc
-
 " --------------------------------
