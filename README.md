@@ -2,15 +2,14 @@
 
 ## Configs
 
-* [.i3/config (i3wm)](configs/config_i3)
+* [.i3/config](configs/config_i3)
 * [.profile](configs/profile)
 * [.xprofile](configs/xprofile)
 * [.Xresources](configs/Xresources)
-* [.config/mimeapps.list](mimeapps.list)
-* [.vimrc | .config/nvim/init.vim](init.vim)
+* [.config/mimeapps.list](configs/mimeapps.list)
+* [.vimrc | .config/nvim/init.vim](configs/init.vim)
+* [.local/share/nvim/site/colors/gruvbox.vim](configs/gruvbox.vim)
 * [/etc/i3status.conf](configs/i3status.conf)
-* [/etc/xkeysnail/config.py](configs/config.py)
-* [/etc/systemd/system/xkeysnail.service](configs/xkeysnail.service)
 
 ## Wallpapers
 
