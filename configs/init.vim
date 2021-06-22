@@ -14,16 +14,16 @@ Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clangd-completer'}
 call plug#end()
 " --------------------------------
 " Plugin settings
+let g:airline_powerline_fonts = 1
+let g:vim_markdown_folding_disabled = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'vertical-split'
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:vim_markdown_folding_disabled = 1
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" --------------------------------
 " My config
 set number
 set smartindent
@@ -33,6 +33,7 @@ set hlsearch
 set autoread
 set nowrap
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+colorscheme gruvbox
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 map <F8> :TagbarToggle<CR>
 autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
