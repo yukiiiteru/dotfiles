@@ -15,3 +15,10 @@
 
 * [Wallpapers](wallpapers)
 
+## Usage
+
+```sh
+cd configs
+./install.sh
+```
+
