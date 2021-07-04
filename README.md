@@ -2,6 +2,7 @@
 
 ## Configs
 
+* [.zshrc](configs/zshrc)
 * [.i3/config](configs/config_i3)
 * [.profile](configs/profile)
 * [.xprofile](configs/xprofile)
