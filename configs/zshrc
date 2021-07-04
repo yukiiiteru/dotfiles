@@ -1,0 +1,8 @@
+
+# My configs
+## alias
+alias vim="nvim"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias zshrc="nvim ~/.zshrc"
+alias pc="proxychains4"
+
