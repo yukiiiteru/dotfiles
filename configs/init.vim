@@ -1,7 +1,7 @@
 " --------------------------------
 "	My vimrc
 "	@author: wfly1998
-"	@change: 20210622
+"	@change: 20211005
 " --------------------------------
 " vim-plug config
 call plug#begin('~/.vim/plugged')
@@ -10,20 +10,14 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python install.py --clangd-completer'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 " --------------------------------
 " Plugin setting
 let g:airline_powerline_fonts = 1
 let g:vim_markdown_folding_disabled = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_goto_buffer_command = 'vertical-split'
-let g:ycm_min_num_of_chars_for_completion = 1
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " --------------------------------
 " My config
 set number
