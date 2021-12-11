@@ -75,15 +75,15 @@ URxvt.background:                 [50]black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
+! URxvt*background:                 black
 ! URxvt*foreground:                 grey
 URxvt*foreground:                 white
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true
-! URxvt*transparent:              true
-! URxvt*shading:                  138
+URxvt*transparent:              true
+URxvt*shading:                  50
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false

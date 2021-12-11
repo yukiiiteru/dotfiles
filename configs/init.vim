@@ -5,12 +5,13 @@
 " --------------------------------
 " vim-plug config
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 " --------------------------------
 " Plugin setting
@@ -28,7 +29,7 @@ set hlsearch
 set autoread
 set nowrap
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-colorscheme gruvbox
+"colorscheme gruvbox
 " Key map
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 map <F8> :TagbarToggle<CR>
