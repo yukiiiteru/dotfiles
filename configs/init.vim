@@ -29,7 +29,9 @@ set hlsearch
 set autoread
 set nowrap
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-"colorscheme gruvbox
+colorscheme gruvbox
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 " Key map
 map <F5> <Esc>:w!<CR>:call RunCode()<CR>
 map <F8> :TagbarToggle<CR>
