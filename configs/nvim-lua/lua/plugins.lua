@@ -3,11 +3,13 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-sensible'
   use 'morhetz/gruvbox'
-  use "numToStr/FTerm.nvim"
+  use 'numToStr/FTerm.nvim'
+  use 'tjdevries/overlength.vim'
+  use 'kyazdani42/nvim-web-devicons'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -17,3 +19,7 @@ return require('packer').startup(function()
     config = function() require('aerial').setup() end
   }
 end)
+
+require('lualine').setup {
+  options = { theme = 'gruvbox' }
+}
