@@ -1,12 +1,11 @@
-local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<Space>q", ":q<CR>", opts)
-keymap("n", "<Space>w", ":w<CR>", opts)
+vim.keymap.set("n", "<Space>q", ":q<CR>", opts)
+vim.keymap.set("n", "<Space>w", ":w<CR>", opts)
 
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
-keymap("i", "{<CR>", "{<CR>}<Esc>O", opts)
+vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O", opts)
