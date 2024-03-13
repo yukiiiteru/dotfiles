@@ -1,9 +1,0 @@
-{
-	"languageserver": {
-		"clangd": {
-			"command": "clangd-13",
-			"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-		}
-	}
-}
