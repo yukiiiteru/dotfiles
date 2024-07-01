@@ -8,8 +8,8 @@ local def_options = {
 	wrap = false,
 	shiftwidth = 8,
 	tabstop = 8,
-	fileencoding = 'utf-8',
-	mouse = '',
+	fileencoding = "utf-8",
+	mouse = "",
 }
 
 local yaml_options = {
@@ -23,7 +23,7 @@ for k, v in pairs(def_options) do
 	vim.opt[k] = v
 end
 
-if vim.bo.filetype == 'yaml' then
+if vim.bo.filetype == "yaml" then
 	for k, v in pairs(yaml_options) do
 		vim.opt[k] = v
 	end

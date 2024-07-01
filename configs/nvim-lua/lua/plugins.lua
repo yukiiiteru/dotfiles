@@ -24,8 +24,37 @@ require('lazy').setup({
 	'tjdevries/overlength.vim',
 	-- thrift highlight
 	{ 'solarnz/thrift.vim', ft = { 'thrift' } },
-	-- rust highlight
-	{ 'rust-lang/rust.vim', ft = { 'rust' } },
+	-- rust
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^4',
+		ft = { 'rust' },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"mfussenegger/nvim-dap",
+			{
+				"lvimuser/lsp-inlayhints.nvim",
+				opts = {}
+			},
+		},
+		config = function()
+			vim.g.rustaceanvim = {
+				inlay_hints = {
+					highlight = "NonText",
+				},
+				tools = {
+					hover_actions = {
+						auto_focus = true,
+					},
+				},
+				server = {
+					on_attach = function(client, bufnr)
+						require("lsp-inlayhints").on_attach(client, bufnr)
+					end
+				}
+			}
+		end
+	},
 	-- rust crates version checker
 	{
 		'Saecki/crates.nvim',
@@ -69,7 +98,7 @@ require('lazy').setup({
 	-- floating terminal
 	'numtostr/FTerm.nvim',
 	-- GitHub Copilot
-	'github/copilot.vim',
+	-- 'github/copilot.vim',
 	-- lsp support
 	'neovim/nvim-lspconfig',
 	-- autocomplete
