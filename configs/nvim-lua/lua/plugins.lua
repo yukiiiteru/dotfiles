@@ -119,6 +119,9 @@ require('lazy').setup({
 	},
 })
 
+-- rustaceanvim
+vim.keymap.set('n', '<space>a', '<Plug>RustHoverAction')
+
 -- aerial.nvim
 vim.keymap.set('n', '<C-a>', '<cmd>AerialToggle!<CR>')
 

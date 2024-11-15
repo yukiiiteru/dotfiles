@@ -1,5 +1,25 @@
 vim.cmd 'set signcolumn=yes'
 
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp['gopls'].setup{
+	cmd = {'gopls'},
+	capabilities = capabilities,
+	settings = {
+		gopls = {
+			experimentalPostfixCompletions = true,
+			analyses = {
+				unusedparams = true,
+				shadow = true,
+			},
+			staticcheck = true,
+		},
+	},
+	init_options = {
+		usePlaceholders = true,
+	}
+}
+
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 cmp.setup({
@@ -66,7 +86,7 @@ cmp.setup.cmdline(':', {
 
 -- Treesitter Plugin Setup
 require('nvim-treesitter.configs').setup {
-	ensure_installed = { 'lua', 'rust', 'toml' },
+	ensure_installed = { 'lua', 'rust', 'toml', 'go' },
 	auto_install = true,
 	highlight = {
 		enable = true,
